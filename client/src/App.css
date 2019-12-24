@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.searchInputBox .form-control{
+  width: 80%;
+  
+}
+
+
+/* media queries */
+@media screen and (max-width:550px){
+  .searchInputBox .form-control{width: 75%;}
+}
+
+
+@media screen and (max-width:330px){
+  .searchInputBox .form-control{width: 70%;}
+}

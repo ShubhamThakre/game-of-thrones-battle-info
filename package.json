@@ -1,0 +1,23 @@
+{
+  "name": "game-of-thrones-battle-info",
+  "version": "1.0.0",
+  "description": "demo app",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShubhamThakre/game-of-thrones-battle-info.git"
+  },
+  "author": "Shubham Thakre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShubhamThakre/game-of-thrones-battle-info/issues"
+  },
+  "homepage": "https://github.com/ShubhamThakre/game-of-thrones-battle-info#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1"
+  }
+}
