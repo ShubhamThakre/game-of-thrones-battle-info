@@ -1,0 +1,40 @@
+.AutoCompleteTextBox{
+    width: 100%;
+    /* border: 1px solid grey; */
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 4px 1px rgba(0, 0, 0, .18);
+}
+.AutoCompleteTextBox ul{
+    list-style-type: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+    color: #495057;
+} 
+.AutoCompleteTextBox ul{
+    content: "";
+}
+.AutoCompleteTextBox li{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.AutoCompleteTextBox li:hover{
+    /* background-color: red;   */
+}
+
+.searchInputBox{
+    display: inline-flex;
+    width: 100%;
+}
+.searchInputBox .form-control{
+    width: 100%;
+}
+.searchInputBox input{
+    background-color: #efefef;
+    border-color: #847979;
+}
+.searchInputBox input:focus{
+    background-color: #efefef;
+    border-color: #847979;
+    box-shadow: none;
+}

@@ -1,19 +1,106 @@
+
 .App {
   text-align: center;
+  color: white;
+  z-index: -2;
+  background-color: #2d3436;
+  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+  /* height:100vh; */
+}
+.App h2{
+  color: #7a7b7b;
 }
 
-.searchInputBox .form-control{
-  width: 80%;
+.MyDropDownComponent{
+  margin: 10px auto 0 auto;
+  width: 100%;
+}
+
+.top_wrapper{
+  text-align: left;
+  font-weight: 700;
+}
+.top_wrapper_body{
+  position: absolute;
+  z-index: 2;
+}
+.top_wrapper_headline{
+  font-size: 20px;
+  color: #505050;
+}
+.top_wrapper_headText{
+  font-size: 39px;
+  padding: 0px 0px 0px 40px;
+  color: #FFEB3B;
+}
+
+.people_element_wrapper{
+  padding: 0px 0px 0px 40px;
+  display: inline-flex;
+}
+.people_element_img{
+  width: 63px;
+  height: 63px;
+}
+.people_element_numBox{
+  padding: 6px 15px;
+}
+.people_element_numBox span{
+  font-size: 35px;
+  color: #adadad;
+}
+
+
+.img_kings{
+  /* //padding: 0px 0px 0px 130px; */
+  position: relative;
+  margin: 0px 0px 0px 375px;
+  z-index: 1;
+  /* height: 11%; */
+  width: 30%;
+  opacity: 0.2;
+
+}
+
+.commander_wrapper, .region_wrapper{
+  text-align: left;
+  padding: 10px 0px;
+}
+.commander_text, .region_text{
+  font-size: 17px;
+  font-weight: 700;
+  color: #505050;
+}
+
+/* media queries */
+@media screen and (max-width:1024px){
+  .img_kings{margin: 0px 0px 0px 268px;width: 40%;}
+  .top_wrapper_headText {padding: 0px 0px 0px 40px;}
+  .people_element_wrapper {padding: 0px 0px 0px 40px;}
+ 
+}
+
+@media screen and (max-width:768px){
+  /* .searchInputBox .form-control{width: 75%;} */
+  .img_kings{margin: 0px 0px 0px 58px;width: 65%;}
+  .top_wrapper_headText {padding: 0px 0px 0px 0px;}
+  .people_element_wrapper {padding: 0px 0px 0px 0px;}
+  
+}
+
+@media screen and (max-width:550px){
+  /* .searchInputBox .form-control{width: 75%;} */
+  .img_kings{margin: 0px 0px 0px 69px;width: 65%;}
+  .top_wrapper_headText {padding: 0px 0px 0px 0px;}
+  .people_element_wrapper {padding: 0px 0px 0px 0px;}
   
 }
 
 
-/* media queries */
-@media screen and (max-width:550px){
-  .searchInputBox .form-control{width: 75%;}
-}
-
-
 @media screen and (max-width:330px){
-  .searchInputBox .form-control{width: 70%;}
+  /* .searchInputBox .form-control{width: 70%;} */
+  .img_kings{margin: 0px 0px 0px 22px;width: 85%;}
+  .top_wrapper_headText {padding: 0px 0px 0px 0px;}
+  .people_element_wrapper {padding: 0px 0px 0px 0px;}
+  
 }

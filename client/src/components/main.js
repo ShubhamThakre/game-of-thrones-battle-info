@@ -29,19 +29,21 @@ class Main extends React.Component{
     render(){
         return(
             <div>
-                <Row className='row' style={{border:'1px solid red'}}>
+                <Row className='' style={{}}>
                     <Col style={{padding:'0px 30px'}}> 
-                        <span>Hello Friends. Wanted to know exciting details for GOT battles.</span><br />
-                        <span>Search below in Searchbox. Type any battle name, must give a try!!</span>
+                        <span style={{color:'#736c63'}}>Hello Friends. Wanted to know exciting details for GOT battles.</span><br />
+                        <span style={{color:'#736c63'}}>Search below in Searchbox. Type any battle name, must give a try!!</span>
                     </Col>
                 </Row>
-                <Row className='row' style={{border:'1px solid red',padding:'10px 0px'}}>
-                    <Col md={{ span: 6, offset: 3 }} style={{border:'1px solid yellow',padding:'0px 10px'}}>
-                        <MyDropDown />
+                <Row className='' style={{padding:'10px 0px'}}>
+                    <Col md={{ span: 6, offset: 3 }} style={{padding:'0px 10px'}}>
+                        <div className="MyDropDownComponent">
+                            <MyDropDown />
+                        </div>
                     </Col>
                 </Row>
-                <Row className='row' style={{border:'1px solid red',padding:'10px 0px'}}>
-                    <Col style={{border:'1px solid green'}}>
+                <Row className='row' style={{padding:'10px 0px'}}>
+                    <Col style={{}}>
                         <BattleInfoSection />
                     </Col>
                 </Row>
