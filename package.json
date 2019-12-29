@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/ShubhamThakre/game-of-thrones-battle-info#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mongoose": "^5.8.3",
     "nodemon": "^2.0.1"
   }
 }

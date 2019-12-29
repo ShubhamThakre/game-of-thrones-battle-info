@@ -9,22 +9,54 @@ class Main extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            msg:""
+            msg:{},
+            battleListArr :[],
+            selectedItem:'',
+            infoData:[],
+            mainDiffView:false
         }
     }
-    componentDidMount = () =>{
-    //     fetch('/get')
-    //   // We get the API response and receive data in JSON format...
-    //     .then(response => response.text())
-    //     .then(data =>{
-    //         console.log('data',data)
-    //         this.setState({
-    //             msg:data
-    //         }) 
+    BattleArrayDataAPI = () =>{
+        fetch('/api/data')
+        .then(response => response.text())
+        .then(data =>{
+            const battleListData = JSON.parse(data);
+            this.setState({
+                battleListArr:battleListData.message
+            }) 
         
-    //     })
-    //     // Catch any errors we hit and update the app
-    //     .catch(error => this.setState({ error, isLoading: false }));
+        })
+        // Catch any errors we hit and update the app
+        .catch(error => console.log('Search box data fetching error',error));
+    }
+    BattlesInfoDataAPI = (nam) =>{
+        // console.log('BattlesInfoDataAPI', nam);
+        const opts={"name":nam}
+        fetch('/api/battleinfo', {
+            method: 'post',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(opts)
+        })
+        .then(response => response.text())
+        .then(data =>{
+            const battleData = JSON.parse(data);
+            this.setState({
+                infoData:battleData
+            }) 
+        
+        })
+        // Catch any errors we hit and update the app
+        .catch(error => console.log('Battle data fetching error',error));
+    }
+    componentDidMount = () =>{
+        this.BattleArrayDataAPI();  
+    }
+    handleClickFunction = (battleNameFromUser) =>{
+        if(battleNameFromUser){
+            this.BattlesInfoDataAPI(battleNameFromUser);
+            this.setState({mainDiffView: true});
+        }
+        
     }
     render(){
         return(
@@ -38,15 +70,15 @@ class Main extends React.Component{
                 <Row className='' style={{padding:'10px 0px'}}>
                     <Col md={{ span: 6, offset: 3 }} style={{padding:'0px 10px'}}>
                         <div className="MyDropDownComponent">
-                            <MyDropDown />
+                            <MyDropDown battleData={this.state.battleListArr} handleClickFunction={this.handleClickFunction}/>
                         </div>
                     </Col>
                 </Row>
-                <Row className='row' style={{padding:'10px 0px'}}>
+                {this.state.mainDiffView && <Row className='row' style={{padding:'10px 0px'}}>
                     <Col style={{}}>
-                        <BattleInfoSection />
+                        <BattleInfoSection data={this.state.infoData}/>
                     </Col>
-                </Row>
+                </Row>}
                 
                 {/*this.state.msg 8528137703 11024*/}
             </div>

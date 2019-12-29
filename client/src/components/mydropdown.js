@@ -1,22 +1,19 @@
 import React from 'react'
-import { Form, FormControl, Button } from "react-bootstrap";
+import {  Button } from "react-bootstrap";
 import '../AutoComplete.css'
 import '../App.css'
 class MyDropDown extends React.Component{
     constructor(props){
         super(props);
-        this.item =[
-            'David',
-            'Davendra',
-            'Sara',
-            'Some new value'
-        ]
         this.state ={
             suggestions: [],
             text:'',
+            newItem: props.battleData
         }
     }
-   
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        this.setState({newItem: nextProps.battleData})
+    }
     onTextChanged= (e) =>{
         const value = e.target.value;
         let suggestions = [];
@@ -24,7 +21,7 @@ class MyDropDown extends React.Component{
         if(value.length > 0){
             const regex = new RegExp(`^${value}`, 'i'); 
             //suggestions = this.item.sort().filter(v => v.text(regex));
-            suggestions = this.item.sort().filter(v => regex.test(v));
+            suggestions = this.state.newItem.sort().filter(v => regex.test(v));
         }
         this.setState(()=>({suggestions, text: value}));
     }
@@ -35,7 +32,7 @@ class MyDropDown extends React.Component{
         }
         return(
             <ul>
-                {suggestions.map( item => <li onClick={()=>this.suggestionsSelected(item)}>{item}</li>)}
+                {suggestions.map( (item,index) => <li key={index} onClick={()=>this.suggestionsSelected(item)}>{item}</li>)}
             </ul> 
         );
     }
@@ -45,8 +42,13 @@ class MyDropDown extends React.Component{
             suggestions:[]
         }));
     }
+    handleClick = () =>{
+        //console.log('state2', this.state);
+        this.props.handleClickFunction(this.state.text);   
+    }
     render(){
         const { text } = this.state;
+       
         return(
             <div className="searchInputBox" >
                 {/*<Form inline>
@@ -63,7 +65,7 @@ class MyDropDown extends React.Component{
                      {this.renderSuggestion()} 
                 </div>
                 <div>
-                <Button variant="outline-primary" type="submit">Search</Button>
+                <Button variant="outline-primary" type="submit" onClick={this.handleClick}>Search</Button>
                 </div>
             </div>
         );
