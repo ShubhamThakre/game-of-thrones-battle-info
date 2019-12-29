@@ -17,7 +17,7 @@ class BattleInfoSection extends React.PureComponent{
        const AttackerImage = this.state.battleDataInfo.attackerID ? 'images/'+this.state.battleDataInfo.attackerID.imgID+'.png' : 'images/'+100+'.png';
        const DefenderImage = this.state.battleDataInfo.defenderID ? 'images/'+this.state.battleDataInfo.defenderID.imgID+'.png' : 'images/'+100+'.png';
        const dataDefiend =  this.state.battleDataInfo.message ? this.state.battleDataInfo.message[0] : null;
-       console.log('dataDefiend', dataDefiend);
+      
        
       
         return(
